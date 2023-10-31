@@ -123,8 +123,17 @@ app.post('/getListTickets',(req,res) => {
 });
 
 
+app.post('/changePassword',(req,res) => {
+  const {password,id} = req.body;
+  const sql = `UPDATE user SET Password='${password}' WHERE UserID = '${id}'`;
+  
+  db.query(sql,(err,kq)=>{
+      if(kq.affectedRows > 0)
+      res.json({ message: 'Thay đổi thành công' });
+  });
+});
 //
-app.listen(3000,'192.168.1.8',()=>{
+app.listen(3000,'172.20.10.3',()=>{
     console.log('server dang chay');
 });
 

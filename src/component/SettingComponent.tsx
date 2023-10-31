@@ -2,11 +2,14 @@ import * as React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { COLORS, FONTSIZE, SPACING } from '../theme/theme';
 import { IconButton } from 'react-native-paper';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 const SettingComponent = (props: any) => {
   return (
     <View style={styles.container}>
+      
+
       <View style={styles.icon}>
         <IconButton icon={props.icon} size={25} iconColor={COLORS.White} />
       </View>
@@ -19,6 +22,7 @@ const SettingComponent = (props: any) => {
         <IconButton icon="chevron-right" size={25} iconColor={COLORS.White}/>
         
       </View>
+    
     </View>
   );
 };

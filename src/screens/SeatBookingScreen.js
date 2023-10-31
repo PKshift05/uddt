@@ -118,7 +118,7 @@ export default class SeatBookingScreen extends Component {
   }
   postTicketData(NumberOfSeats, time,userID,showID ) {
     axios
-      .post('http://192.168.1.8:3000/postTicketData', {
+      .post('http://172.20.10.3:3000/postTicketData', {
         NumberOfSeats: NumberOfSeats,
         Timestamp: time,
         UserID: userID,

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, StatusBar } from 'react-native';
+import { View, Text, StyleSheet, StatusBar, TouchableOpacity } from 'react-native';
 import { COLORS, FONTSIZE, SPACING } from '../theme/theme';
 import AppHeader from '../component/AppHeader';
-import { Avatar,Button } from 'react-native-paper';
+import { Avatar, Button } from 'react-native-paper';
 import SettingComponent from '../component/SettingComponent';
 import { connect } from 'react-redux';
 
@@ -15,9 +15,9 @@ class UserAccountScreen extends Component {
       userData: null,
     };
   }
-  async  removeAllAsyncStorageItems() {
+  async removeAllAsyncStorageItems() {
     try {
-      
+
       await AsyncStorage.removeItem('ticket');
       await AsyncStorage.removeItem('user');
       console.log('Removed all AsyncStorage items');
@@ -61,44 +61,60 @@ class UserAccountScreen extends Component {
           <Text style={styles.avatarText}>{userData?.userName}</Text>
         </View>
         <View style={{ marginHorizontal: 10, alignItems: 'center', paddingTop: SPACING.space_36 + 10 }}>
-          <SettingComponent
-            icon="account"
-            heading="Account"
-            subheading="Edit Profile"
-            subtitle="Change Password" />
-          <SettingComponent
-            icon="cog"
-            heading="Settings"
-            subheading="Theme"
-            subtitle="Permissions" />
-          <SettingComponent
-            icon="currency-usd"
-            heading="Offers & Referrals"
-            subheading="Offers"
-            subtitle="Referrals" />
-          <SettingComponent
-            icon="information"
-            heading="About"
-            subheading="About Movies"
-            subtitle="More" />
-        </View>
-        
-          <Button
-            style={styles.buttonLogout}
-            mode='contained'
-            buttonColor={COLORS.Orange}
-            onPress={()=>this.removeAllAsyncStorageItems()}
-          >
-            <Text style={{
-              marginTop: 15,
-              fontSize: 20,
-              color: COLORS.White,
+          <TouchableOpacity style={styles.touchSetting} onPress={()=>this.props.navigation.navigate("SettingAccount")}>
 
-            }}>
-              Log out
-            </Text>
-          </Button>
-       
+            <SettingComponent
+              nameSetting="SettingAccount"
+              icon="account"
+              heading="Account"
+              subheading="Edit Profile"
+              subtitle="Change Password" />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.touchSetting} onPress={()=>this.props.navigation.navigate("SettingApp")}>
+
+            <SettingComponent
+              
+              icon="cog"
+              heading="Settings"
+              subheading="Theme"
+              subtitle="Permissions" />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.touchSetting} onPress={()=>this.props.navigation.navigate("SettingOffer")}>
+
+            <SettingComponent
+              
+              icon="currency-usd"
+              heading="Offers & Referrals"
+              subheading="Offers"
+              subtitle="Referrals" />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.touchSetting} onPress={()=>this.props.navigation.navigate("SettingAbout")}>
+
+            <SettingComponent
+             
+              icon="information"
+              heading="About"
+              subheading="About Movies"
+              subtitle="More" />
+          </TouchableOpacity>
+        </View>
+
+        <Button
+          style={styles.buttonLogout}
+          mode='contained'
+          buttonColor={COLORS.Orange}
+          onPress={() => this.removeAllAsyncStorageItems()}
+        >
+          <Text style={{
+            marginTop: 15,
+            fontSize: 20,
+            color: COLORS.White,
+
+          }}>
+            Log out
+          </Text>
+        </Button>
+
       </View>
     );
   }
@@ -126,10 +142,13 @@ const styles = StyleSheet.create({
     color: COLORS.White,
   },
   buttonLogout: {
-    marginVertical:SPACING.space_20*2,
+    marginVertical: SPACING.space_20 * 2,
     borderRadius: SPACING.space_20 + 5,
     marginHorizontal: SPACING.space_20,
     height: 50,
+  },
+  touchSetting: {
+    width: 400,
   },
 })
 const mapStateToProps = (state) => {

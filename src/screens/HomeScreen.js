@@ -40,7 +40,7 @@ class HomeScreen extends Component {
   }
   getNowPlayingMoviesList() {
     axios
-    .get('http://192.168.1.8:3000/getMovie')
+    .get('http://172.20.10.3:3000/getMovie')
     .then((res) => {
       // Handle a successful response
       this.setState({
@@ -50,7 +50,7 @@ class HomeScreen extends Component {
   }
   getUpcomingMoviesList() {
     axios
-    .get('http://192.168.1.8:3000/getMovie')
+    .get('http://172.20.10.3:3000/getMovie')
     .then((res) => {
       // Handle a successful response
       this.setState({
@@ -60,7 +60,7 @@ class HomeScreen extends Component {
   }
   getPopularMoviesList() {
     axios
-    .get('http://192.168.1.8:3000/getMovie')
+    .get('http://172.20.10.3:3000/getMovie')
     .then((res) => {
       // Handle a successful response
       this.setState({

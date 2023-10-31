@@ -22,7 +22,7 @@ class LoginScreen extends Component {
     const { userName, password, errorMessage, userAcc } = this.state;
 
     try {
-      const response = await axios.post('http://192.168.1.8:3000/login', {
+      const response = await axios.post('http://172.20.10.3:3000/login', {
         userName: userName,
         password: password,
       });

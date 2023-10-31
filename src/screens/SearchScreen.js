@@ -19,7 +19,7 @@ export default class SearchScreen extends Component {
 
   searchMoviesFunction = (value) =>{
     axios
-    .post('http://192.168.1.8:3000/searchMovie',{
+    .post('http://172.20.10.3:3000/searchMovie',{
       NameMovie: value
     })
     .then(res => {

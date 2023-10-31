@@ -32,7 +32,7 @@ export default class ListTicket extends Component {
 
     async getListTicket() {
         axios
-            .post('http://192.168.1.8:3000/getListTickets', {
+            .post('http://172.20.10.3:3000/getListTickets', {
                 userID: this.state.userData?.userID
             })
             .then(res => {

@@ -31,7 +31,7 @@ export default class MovieDetailScreen extends Component {
 
   getMovieDetails(){
     axios
-    .post('http://192.168.1.8:3000/getMovieDetails',{
+    .post('http://172.20.10.3:3000/getMovieDetails',{
       movieid: this.props.route.params.movieid
     })
     .then(res => {

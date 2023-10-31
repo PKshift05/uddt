@@ -27,7 +27,7 @@ export default class RegisterScreen extends Component {
       passWord,
     } = this.state;
     axios
-    .post('http://192.168.1.8:3000/register',{
+    .post('http://172.20.10.3:3000/register',{
       userName: userName,
       email:email,
       phone:phoneNumber,
